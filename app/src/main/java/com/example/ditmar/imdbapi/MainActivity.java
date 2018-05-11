@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemClickListener{
 
     private ListView LIST;
     private ArrayList<ItemList> LISTINFO;
@@ -106,6 +106,9 @@ public class MainActivity extends AppCompatActivity {
         LIST  = (ListView) this.findViewById(R.id.listviewlayout);
         //LISTINFO.add(new ItemList("https://images-na.ssl-images-amazon.com/images/M/MV5BMjA4MzAyNDE1MF5BMl5BanBnXkFtZTgwODQxMjU5MzE@._V1_SX300.jpg","prueba","prueba","movie"));
         EditText search = (EditText)this.findViewById(R.id.searchmovie);
+        //click event
+        LIST.setOnItemClickListener(this);
+
         //EVENTOSSSSSSSS
         search.addTextChangedListener(new TextWatcher() {
 
@@ -150,5 +153,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String idImdb = this.LISTINFO.get(position).getIdimdb();
+        Intent moviewDetaild = new Intent(this, MovieDetaild.class);
+        moviewDetaild.putExtra("id", idImdb);
+        this.startActivity(moviewDetaild);
     }
 }
