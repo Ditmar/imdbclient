@@ -3,4 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_movie_detail">MovieDetail</string>
     <string name="title_activity_movie_detaild">MovieDetaild</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="error_login">El sistema no pudo conectarse a google play service intente de nuevo mas tarde</string>
+    <string name="title_activity_login_result">LoginResult</string>
+
 </resources>
